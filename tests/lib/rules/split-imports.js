@@ -31,27 +31,27 @@ ruleTester.run("split-imports", rule, {
         {
             code: `import { merge, find } from "lodash-es";`,
             output: `import { merge } from "lodash-es";\nimport { find } from "lodash-es";`,
-            errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }]
+            errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }],
         },
         {
             code: `import _, { merge } from "lodash-es";`,
             output: `import _ from "lodash-es";\nimport { merge } from "lodash-es";`,
-            errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }]
+            errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }],
         },
         {
             code: "import {zzzzz, /* comment */ aaaaa} from 'foo.js';",
             output: null, // not fixed due to comment
-            errors: [{ messageId: "import", data: { module: "foo.js" }, type: "ImportDeclaration" }]
+            errors: [{ messageId: "import", data: { module: "foo.js" }, type: "ImportDeclaration" }],
         },
         {
             code: "import {zzzzz /* comment */, aaaaa} from 'foo.js';",
             output: null, // not fixed due to comment
-            errors: [{ messageId: "import", data: { module: "foo.js" }, type: "ImportDeclaration" }]
+            errors: [{ messageId: "import", data: { module: "foo.js" }, type: "ImportDeclaration" }],
         },
         {
             code: `import _, { merge as foo, find as bar } from "lodash-es";`,
             output: `import _ from "lodash-es";\nimport { merge as foo } from "lodash-es";\nimport { find as bar } from "lodash-es";`,
-            errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }]
+            errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }],
         },
         {
             code: `import type { Foo, Bar } from "baz";`,
