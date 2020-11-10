@@ -53,5 +53,11 @@ ruleTester.run("split-imports", rule, {
             output: `import _ from "lodash-es";\nimport { merge as foo } from "lodash-es";\nimport { find as bar } from "lodash-es";`,
             errors: [{ messageId: "import", data: { module: "lodash-es" }, type: "ImportDeclaration" }]
         },
+        {
+            code: `import type { Foo, Bar } from "baz";`,
+            output: `import type { Foo } from "baz";\nimport type { Bar } from "baz";`,
+            errors: [{ messageId: "import", data: { module: "baz" }, type: "ImportDeclaration" }],
+            parser: '@typescript-eslint/parser',
+        },
     ]
 });
