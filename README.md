@@ -1,4 +1,5 @@
 [![npm version](https://img.shields.io/npm/v/@scitotec/eslint-plugin-rules.svg)](https://www.npmjs.com/package/@scitotec/eslint-plugin-rules)
+[![license](https://img.shields.io/npm/l/@scitotec/eslint-plugin-rules.svg)](./LICENSE)
 
 # @scitotec/eslint-plugin-rules
 
