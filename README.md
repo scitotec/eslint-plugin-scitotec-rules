@@ -1,3 +1,5 @@
+[![npm version](https://img.shields.io/npm/v/@scitotec/eslint-plugin-rules.svg)](https://www.npmjs.com/package/@scitotec/eslint-plugin-rules)
+
 # @scitotec/eslint-plugin-rules
 
 A plugin providing custom ESLint rules made by [Scitotec GmbH](https://scitotec.de).
