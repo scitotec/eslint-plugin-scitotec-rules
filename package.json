@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-scitotec-rules",
+  "name": "@scitotec/eslint-plugin-rules",
   "version": "0.0.0-development",
   "description": "A plugin providing custom ESLint rules made by Scitotec GmbH",
   "keywords": [
