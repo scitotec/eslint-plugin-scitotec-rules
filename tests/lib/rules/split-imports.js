@@ -26,6 +26,10 @@ ruleTester.run("split-imports", rule, {
         `import "foo";`,
         `import * as Foobar from "async";`,
         `import os from "os";`,
+        {
+            code: `import type { Something } from "lodash-es";`,
+            parser: '@typescript-eslint/parser',
+        },
     ],
     invalid: [
         {
