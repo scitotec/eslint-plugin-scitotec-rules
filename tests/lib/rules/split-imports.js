@@ -9,14 +9,15 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/split-imports")
-const { RuleTester } = require("eslint")
+import rule from "../../../lib/rules/split-imports.js"
+import { RuleTester } from "eslint"
+import tsParser from '@typescript-eslint/parser'
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6, sourceType: "module" } });
+const ruleTester = new RuleTester({ languageOptions: { ecmaVersion: 6, sourceType: "module" } });
 
 ruleTester.run("split-imports", rule, {
     valid: [
@@ -28,7 +29,7 @@ ruleTester.run("split-imports", rule, {
         `import os from "os";`,
         {
             code: `import type { Something } from "lodash-es";`,
-            parser: '@typescript-eslint/parser',
+            languageOptions: {parser: tsParser},
         },
     ],
     invalid: [
@@ -61,7 +62,7 @@ ruleTester.run("split-imports", rule, {
             code: `import type { Foo, Bar } from "baz";`,
             output: `import type { Foo } from "baz";\nimport type { Bar } from "baz";`,
             errors: [{ messageId: "import", data: { module: "baz" }, type: "ImportDeclaration" }],
-            parser: '@typescript-eslint/parser',
+            languageOptions: {parser: tsParser},
         },
     ]
 });

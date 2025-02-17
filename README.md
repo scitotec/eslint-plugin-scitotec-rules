@@ -24,25 +24,36 @@ $ npm install @scitotec/eslint-plugin-rules --save-dev
 
 ## Usage
 
-Add `@scitotec/rules` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Import `@scitotec/rules` within your `eslint.config.js` configuration file.
 
-```json
-{
-    "plugins": [
-        "@scitotec/rules"
-    ]
-}
+```javascript
+import pluginScitotec from '@scitotec/eslint-plugin-rules'
 ```
 
 
-Then configure the rules you want to use under the rules section.
+Then just add the recommended rules to your plugin:
 
-```json
-{
-    "rules": {
-        "@scitotec/rules/split-imports": [ "error" ]
-    }
-}
+```javascript
+export default [
+    // ... your other rules...
+    ...pluginScitotec.configs.recommended,
+]
+```
+
+Alternatively, add the plugin and configure the rules yourself:
+
+```javascript
+export default [
+    // ... your other rules...
+    {
+        plugins: {
+            '@scitotec': pluginScitotec,
+        },
+        rules: {
+            "@scitotec/split-imports": "warn",
+        },
+    },
+]
 ```
 
 ## Supported Rules
