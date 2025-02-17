@@ -9,6 +9,7 @@
   ],
   "author": "Scitotec GmbH",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "type": "module",
   "scripts": {
     "test": "mocha tests --recursive"
